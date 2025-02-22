@@ -249,7 +249,7 @@ const Home = () => {
           {/* Call to Action */}
           <div className="mt-8">
             <Link
-              href="/contact"
+              to ="/contact"  onClick={() => window.scrollTo(0, 0)}
               className="inline-block px-8 py-3 text-lg font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 transition-all duration-300 shadow-lg transform hover:scale-105"
             >
               Get Started 🚀

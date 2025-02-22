@@ -1,21 +1,23 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-const ProtectedRoute = ({ roles }) => {
-    const { user, token } = useAuth(); // Get user and token from AuthContext
+const ProtectedRoute = ({ roles, children }) => {
+    const { token, role } = useAuth();
 
-    // If no token, redirect to login
+    // console.log("Role from context:", role);
+    // console.log("Allowed roles:", roles);
+    // console.log("Role from localStorage:", localStorage.getItem("role"));
+
     if (!token) {
         return <Navigate to="/login" replace />;
     }
 
-    // If roles are specified and user doesn't have the required role, redirect to home
-    if (roles && !roles.includes(user?.role)) {
-        return <Navigate to="/" replace />;
+    // Check if the role is allowed
+    if (roles && roles.includes(role)) {
+        return children; 
     }
 
-    // If authenticated and authorized, render the child routes
-    return <Outlet />;
+    return <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;

@@ -4,7 +4,6 @@ import Modal from "react-modal";
 import React from "react";
 import { useAuth } from "../../context/AuthContext";
 
-
 Modal.setAppElement("#root");
 
 const AdminEnquiries = () => {
@@ -87,7 +86,7 @@ const TableComponent = ({ title, data, handleDelete, handleRead }) => {
             <table className="w-full border-collapse border text-white">
                 <thead>
                     <tr className="bg-gray-700">
-                        <th className="border p-2">Id</th>
+                        {/* <th className="border p-2">Id</th> */}
                         <th className="border p-2">Name</th>
                         <th className="border p-2">Email ID</th>
                         <th className="border p-2">Company</th>
@@ -98,7 +97,7 @@ const TableComponent = ({ title, data, handleDelete, handleRead }) => {
                 <tbody>
                     {data.map((item) => (
                         <tr key={item._id} className="text-center border-b border-gray-700">
-                            <td className="border p-2">{item._id}</td>
+                            {/* <td className="border p-2">{item._id}</td> */}
                             <td className="border p-2">{item.name}</td>
                             <td className="border p-2">{item.email}</td>
                             <td className="border p-2">{item.company}</td>

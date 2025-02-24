@@ -27,9 +27,9 @@ const Login = () => {
             if (role === "admin") {
                 navigate("/admin"); // Redirect to admin dashboard
             } else if (role === "business") {
-                navigate("/contact"); // Redirect to home page
+                navigate("/contact"); // Redirect to contact page
             } else if (role === "student") {
-                navigate("/"); // Redirect to about page
+                navigate("/"); // Redirect to home page
             } else {
                 navigate("/"); // Default redirect
             }

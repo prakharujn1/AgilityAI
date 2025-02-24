@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { Link, useNavigate } from "react-router-dom"; // For navigation
 import { useAuth } from "../context/AuthContext"; // For managing authentication state
 
 const Login = () => {
@@ -68,9 +67,9 @@ const Login = () => {
                 </form>
                 <p className="mt-4 text-center">
                     Don't have an account?{" "}
-                    <a href="/register" className="text-blue-500 hover:underline">
+                    <Link to="/register" className="text-blue-500 hover:underline">
                         Register here
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>

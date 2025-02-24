@@ -13,28 +13,21 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            // Call the login API
-            const response = await axios.post("http://localhost:5000/api/auth/login", {
-                email,
-                password,
-            });
-
-            // Store the token and user data in context
-            login(email, password);
+            // Call the login function from AuthContext
+            const user = await login(email, password);
 
             // Redirect based on the user's role
-            const { role } = response.data.user;
-            if (role === "admin") {
+            if (user.role === "admin") {
                 navigate("/admin"); // Redirect to admin dashboard
-            } else if (role === "business") {
+            } else if (user.role === "business") {
                 navigate("/contact"); // Redirect to contact page
-            } else if (role === "student") {
+            } else if (user.role === "student") {
                 navigate("/"); // Redirect to home page
             } else {
                 navigate("/"); // Default redirect
             }
         } catch (error) {
-            console.error("Login failed:", error.response?.data?.message || error.message);
+            console.error("Login failed:", error.message);
             alert("Login failed. Please check your credentials and try again.");
         }
     };

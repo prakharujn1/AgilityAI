@@ -33,9 +33,9 @@ export const AuthProvider = ({ children }) => {
 
                 localStorage.setItem("token", token);
                 localStorage.setItem("role", user.role);
+                
+                return user;
             }
-
-            return response.data;
         } catch (error) {
             console.error("Login error:", error.response?.data?.message || error.message);
             throw new Error(error.response?.data?.message || "Login failed");
